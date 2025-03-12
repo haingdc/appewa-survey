@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Hello World.</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="A simple hello world HTML example.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    @layer default, components, custom-style;
+
+    @layer default {
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      
+      * {
+        margin: 0;
+      }
+      
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+      }
+      
+      input, button, textarea, select {
+        font: inherit;
+      }
+      
+      p, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+      }
+      
+      p {
+        text-wrap: pretty;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance;
+      }
+      
+      #root, #__next {
+        isolation: isolate;
+      }
+
+      body {
+        background-color: #f3f3f3;
+        font-family: Nunito;
+        margin: 0;
+      }
+    }
+    @layer components {
+      .web-container {
+        padding: 16px;
+        .title {
+          font-size: 28px;
+          text-align: center;
+          color: #15141A;
+          font-weight: 700;
+        }
+        .form-inner-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .native-lang-list {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-content: center;
+          justify-items: start;
+        }
+        .lang-item {
+          border: 1px solid #0000;
+          padding: 8px;
+          display: flex;
+          gap: 8px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 6px;
+          &:hover {
+            border-color: #d5dbe3;
+          }
+          &.current {
+              border-color: #d5dbe3;
+              background-color: #d6f3ff;
+          }
+          input[type="radio"] {
+            position: absolute;
+            top: -100%;
+            left: 0;
+          }
+          .icon-flag {
+            width: 34px;
+            height: 34px;
+          }
+          label {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-weight: 700;
+            font-size: 16px;
+          }
+        }
+      }
+      .buttons {
+        font-size: 18px;
+        font-weight: 700;
+        position: sticky;
+        bottom: 24px;
+      }
+      button[type='submit'] {
+        width: 100%;
+        background: #25beff;
+        padding: 8px 16px;
+        max-width: 360px;
+        border: 0;
+        border-radius: 6px;
+        color: #fff;
+        height: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="web-container">
+    <div class="title">Ngôn ngữ mẹ đẻ của bạn là gì?</div>
+    <form>
+      <div class="form-inner-wrapper">
+        <div class="native-lang-list">
+          <div class="lang-item">
+            <input id="vi-lang" type="radio" value="ar" name="native-lang">
+            <label for="vi-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/vi.svg" alt="">
+              </div>
+              Việt Nam
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="en-lang" type="radio" value="en" name="native-lang">
+            <label for="en-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/en.svg" alt="">
+              </div>
+              English
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ru-lang" type="radio" value="ru" name="native-lang">
+            <label for="ru-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ru.svg" alt="">
+              </div>
+              Русский
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="es-lang" type="radio" value="es" name="native-lang">
+            <label for="es-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/es.svg" alt="">
+              </div>
+              Español
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="pt-lang" type="radio" value="pt" name="native-lang">
+            <label for="pt-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/pt.svg" alt="">
+              </div>
+               Português
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="tr-lang" type="radio" value="tr" name="native-lang">
+            <label for="tr-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/tr.svg" alt="">
+              </div>
+              Türkçe
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ar-lang" type="radio" value="ar" name="native-lang">
+            <label for="ar-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ar.svg" alt="">
+              </div>
+               العربية
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="fr-lang" type="radio" value="fr" name="native-lang">
+            <label for="fr-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/fr.svg" alt="">
+              </div>
+              Français
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="zh-lang" type="radio" value="zh" name="native-lang">
+            <label for="zh-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/zh.svg" alt="">
+              </div>
+              中文
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="pl-lang" type="radio" value="pl" name="native-lang">
+            <label for="pl-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/pl.svg" alt="">
+              </div>
+              Polski
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="it-lang" type="radio" value="it" name="native-lang">
+            <label for="it-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/it.svg" alt="">
+              </div>
+              Italiano
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="hi-lang" type="radio" value="hi" name="native-lang">
+            <label for="hi-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/hi.svg" alt="">
+              </div>
+              हिन्दी
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="th-lang" type="radio" value="th" name="native-lang">
+            <label for="th-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/th.svg" alt="">
+              </div>
+              ภาษาไทย
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="uk-lang" type="radio" value="uk" name="native-lang">
+            <label for="uk-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/uk.svg" alt="">
+              </div>
+               Українська
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ko-lang" type="radio" value="ko" name="native-lang">
+            <label for="ko-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ko.svg" alt="">
+              </div>
+                한국어
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ro-lang" type="radio" value="ro" name="native-lang">
+            <label for="ro-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ro.svg" alt="">
+              </div>
+              Română
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="de-lang" type="radio" value="de" name="native-lang">
+            <label for="de-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/de.svg" alt="">
+              </div>
+              Deutsch
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="he-lang" type="radio" value="he" name="native-lang">
+            <label for="he-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/he.svg" alt="">
+              </div>
+                עברית
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="id-lang" type="radio" value="id" name="native-lang">
+            <label for="id-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/id.svg" alt="">
+              </div>
+              Bahasa Indonesia
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ja-lang" type="radio" value="ja" name="native-lang">
+            <label for="ja-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ja.svg" alt="">
+              </div>
+              日本語
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="hu-lang" type="radio" value="hu" name="native-lang">
+            <label for="hu-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/hu.svg" alt="">
+              </div>
+              Magyar
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ka-lang" type="radio" value="ka" name="native-lang">
+            <label for="ka-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ka.svg" alt="">
+              </div>
+              ქართული
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="cs-lang" type="radio" value="cs" name="native-lang">
+            <label for="cs-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/cs.svg" alt="">
+              </div>
+               Čeština
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="az-lang" type="radio" value="az" name="native-lang">
+            <label for="az-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/az.svg" alt="">
+              </div>
+              Azərbaycan dili
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="sk-lang" type="radio" value="sk" name="native-lang">
+            <label for="sk-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/sk.svg" alt="">
+              </div>
+               Slovenčina
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="lt-lang" type="radio" value="lt" name="native-lang">
+            <label for="lt-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/lt.svg" alt="">
+              </div>
+              Lietuvių kalba
+            </label>
+          </div>
+          
+
+
+          <div class="lang-item">
+            <input id="hy-lang" type="radio" value="hy" name="native-lang">
+            <label for="hy-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/hy.svg" alt="">
+              </div>
+               Հայերեն
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="fa-lang" type="radio" value="fa" name="native-lang">
+            <label for="fa-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/fa.svg" alt="">
+              </div>
+               فارسی
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="kk-lang" type="radio" value="kk" name="native-lang">
+            <label for="kk-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/kk.svg" alt="">
+              </div>
+               Қазақ тілі
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="nl-lang" type="radio" value="nl" name="native-lang">
+            <label for="nl-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/nl.svg" alt="">
+              </div>
+               Nederlands
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="el-lang" type="radio" value="el" name="native-lang">
+            <label for="el-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/el.svg" alt="">
+              </div>
+               Ελληνικά
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="sv-lang" type="radio" value="sv" name="native-lang">
+            <label for="sv-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/sv.svg" alt="">
+              </div>
+               Svenska
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="lv-lang" type="radio" value="lv" name="native-lang">
+            <label for="lv-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/lv.svg" alt="">
+              </div>
+              Latviešu valoda
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="fi-lang" type="radio" value="fi" name="native-lang">
+            <label for="fi-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/fi.svg" alt="">
+              </div>
+              Suomi
+            </label>
+          </div>
+
+
+          <div class="lang-item">
+            <input id="et-lang" type="radio" value="et" name="native-lang">
+            <label for="et-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/et.svg" alt="">
+              </div>
+              Eesti keel
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="da-lang" type="radio" value="da" name="native-lang">
+            <label for="da-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/da.svg" alt="">
+              </div>
+              Dansk
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="no-lang" type="radio" value="no" name="native-lang">
+            <label for="no-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/no.svg" alt="">
+              </div>
+               Norsk
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="bg-lang" type="radio" value="bg" name="native-lang">
+            <label for="bg-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/bg.svg" alt="">
+              </div>
+               Български
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="hr-lang" type="radio" value="hr" name="native-lang">
+            <label for="hr-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/hr.svg" alt="">
+              </div>
+               Hrvatski
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="ms-lang" type="radio" value="ms" name="native-lang">
+            <label for="ms-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/ms.svg" alt="">
+              </div>
+              Bahasa Melayu
+            </label>
+          </div>
+          <div class="lang-item">
+            <input id="sr-lang" type="radio" value="sr" name="native-lang">
+            <label for="sr-lang">
+              <div class="icon-flag">
+                <img  class="web-image-cover" src="/images/national-flags/sr.svg" alt="">
+              </div>
+              Srpski
+            </label>
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="submit">Tiếp theo</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+<script src="main.js"></script>
+<script type="module" src="main2.mjs"></script>
+
+</html>
